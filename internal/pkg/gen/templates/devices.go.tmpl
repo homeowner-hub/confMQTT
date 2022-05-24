@@ -1,0 +1,22 @@
+{{template "header" . }}
+
+type Device string
+
+const (
+	{{range .Values}}{{noDeviceTypeName .TypeName}} Device = "{{.Name}}"
+	{{end}}
+)
+
+func GetDeviceConfig(device Device) (any, bool) {
+	if v, ok := map[Device]interface{}{
+		{{range .Values}}{{noDeviceTypeName .TypeName}}: &{{.TypeName }}{},
+		{{end}}
+	}[device]; ok {
+		return v, true
+	}
+	return nil, false
+}
+
+{{range .Values}}
+	{{template "object" .}}
+{{end}}

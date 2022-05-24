@@ -1,0 +1,25 @@
+[
+  {
+    "Name": "device",
+    "Keys": [
+      "KeyConfigurationUrl",
+      "KeyConnections",
+      "KeyIdentifiers",
+      "KeyManufacturer",
+      "KeyModel",
+      "KeyName",
+      "KeySuggestedArea",
+      "KeySwVersion",
+      "KeyViaDevice"
+    ]
+  },
+  {
+    "Name": "availability",
+    "Keys": [
+      "KeyPayloadAvailable",
+      "KeyPayloadNotAvailable",
+      "KeyTopic",
+      "KeyValueTemplate"
+    ]
+  }
+]

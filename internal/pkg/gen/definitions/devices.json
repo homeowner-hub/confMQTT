@@ -1,0 +1,102 @@
+[
+  {
+    "Name": "binary_sensor",
+    "Keys": [
+      "KeyAvailability",
+      "KeyAvailabilityMode",
+      "KeyAvailabilityTemplate",
+      "KeyAvailabilityTopic",
+      "KeyDevice",
+      "KeyDeviceClass",
+      "KeyEnabledByDefault",
+      "KeyEncoding",
+      "KeyEntityCategory",
+      "KeyExpireAfter",
+      "KeyForceUpdate",
+      "KeyIcon",
+      "KeyJsonAttributesTemplate",
+      "KeyJsonAttributesTopic",
+      "KeyNameBinarySensor",
+      "KeyObjectId",
+      "KeyOffDelay",
+      "KeyPayloadAvailable",
+      "KeyPayloadNotAvailable",
+      "KeyPayloadOff",
+      "KeyPayloadOn",
+      "KeyQos",
+      "KeyStateTopic",
+      "KeyUniqueId",
+      "KeyValueTemplate"
+    ]
+  },
+  {
+    "Name": "device_trigger",
+    "Keys": [
+      "KeyAutomationType",
+      "KeyPayload",
+      "KeyQos",
+      "KeyTopic",
+      "KeyType",
+      "KeySubtype",
+      "KeyDeviceRequired",
+      "KeyValueTemplate"
+    ]
+  },
+  {
+    "Name": "button",
+    "Keys": [
+      "KeyAvailability",
+      "KeyAvailabilityMode",
+      "KeyAvailabilityTemplate",
+      "KeyAvailabilityTopic",
+      "KeyCommandTemplate",
+      "KeyCommandTopic",
+      "KeyDevice",
+      "KeyDeviceClass",
+      "KeyEnabledByDefault",
+      "KeyEncoding",
+      "KeyEntityCategory",
+      "KeyIcon",
+      "KeyJsonAttributesTemplate",
+      "KeyJsonAttributesTopic",
+      "KeyNameButton",
+      "KeyObjectId",
+      "KeyPayloadAvailable",
+      "KeyPayloadNotAvailable",
+      "KeyPayloadPress",
+      "KeyQos",
+      "KeyRetain",
+      "KeyUniqueId"
+    ]
+  },
+  {
+    "Name": "sensor",
+    "Keys": [
+      "KeyAvailability",
+      "KeyAvailabilityMode",
+      "KeyAvailabilityTemplate",
+      "KeyDevice",
+      "KeyDeviceClass",
+      "KeyEnabledByDefault",
+      "KeyEncoding",
+      "KeyAvailabilityTopic",
+      "KeyEntityCategory",
+      "KeyExpireAfter",
+      "KeyForceUpdate",
+      "KeyIcon",
+      "KeyJsonAttributesTemplate",
+      "KeyJsonAttributesTopic",
+      "KeyLastResetValueTemplate",
+      "KeyNameSensor",
+      "KeyObjectId",
+      "KeyPayloadAvailable",
+      "KeyPayloadNotAvailable",
+      "KeyQos",
+      "KeyStateClass",
+      "KeyStateTopic",
+      "KeyUniqueId",
+      "KeyUnitOfMeasurement",
+      "KeyValueTemplate"
+    ]
+  }
+]

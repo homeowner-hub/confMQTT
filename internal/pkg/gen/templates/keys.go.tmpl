@@ -1,0 +1,49 @@
+{{template "header" . }}
+
+{{range .Values}}type {{.TypeName}} struct {
+    Val1 {{.Type1}}
+    Exists1 bool{{if .BiVal}}
+	Val2 {{.Type2}}
+    Exists2 bool{{end}}
+}
+
+func (k *{{.TypeName}}) UnmarshalJSON(b []byte) error {
+	return {{if .BiVal}}Bi{{end}}ValueUnmarshaler[{{.Type1}}{{if .BiVal}}, {{.Type2}}{{end}}] {
+    {{if .BiVal}}ValueUnmarshaler: ValueUnmarshaler[{{.Type1}}] {
+{{end}}Typename: "{{.TypeName}}",
+Value1: &k.Val1,
+Exists1: &k.Exists1,{{if .BiVal}}{{if .BiVal}}
+},
+		{{end}}Value2: &k.Val2,
+		Exists2: &k.Exists2,{{end}}
+}.UnmarshalJSON(b)
+}
+
+func (k *{{.TypeName}}) LongName() string {
+    return "{{.LongName}}"
+}
+
+func (k *{{.TypeName}}) ShortName() string {
+    return "{{.ShortName}}"
+}
+
+func (k *{{.TypeName}}) Optional() bool {
+    return {{.Optional}}
+}
+
+func (k *{{.TypeName}}) Value() ({{.Type1}}, bool) {
+    {{if eq .Type1 .DefVal}}{{if .Def}}if !k.Exists1 {
+    return {{.DefVal}}, true
+    }
+    {{end}}{{end}}return k.Val1, k.Exists1
+}
+
+{{if .BiVal}}func (k *{{.TypeName}}) Value2() ({{.Type2}}, bool) {
+    {{if eq .Type2 .DefVal}}{{if .Def}}if !k.Exists2 {
+        return {{.DefVal}}, true
+    }
+    {{end}}{{end}}return k.Val2, k.Exists2
+}{{else}}func (k *{{.TypeName}}) Value2() (v {{.Type1}}, ok bool) {
+    return
+}{{end}}
+{{end}}

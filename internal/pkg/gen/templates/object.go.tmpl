@@ -1,0 +1,20 @@
+type {{.TypeName}} struct {
+    {{range .Keys}}{{.}} {{.}}
+    {{end}}
+}
+
+{{define "marshalKeys"}}{{range keyProperties .}}&PseudoKey[{{.Type1}}, {{if .Type2}}{{.Type2}}{{else}}{{.Type1}}{{end}}]{K: &tn.{{.TypeName}}},
+    {{end}}
+{{end}}
+
+func (tn *{{.TypeName}}) MarshalJSON() ([]byte, error) {
+    return MarshalBiKeys({{if not .Keys}}){{end}}
+        {{template "marshalKeys" .Keys }}
+    {{if .Keys}}){{end}}
+}
+
+func (tn *{{.TypeName}}) UnmarshalJSON(b []byte) error {
+    return UnmarshalBiKeys("{{.TypeName}}", b{{if .Keys}},{{else}}){{end}}
+        {{template "marshalKeys" .Keys }}
+    {{if .Keys}}){{end}}
+}
